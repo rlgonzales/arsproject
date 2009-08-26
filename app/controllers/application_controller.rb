@@ -23,5 +23,10 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.record
   end
 
+  def authenticate
+    if !current_user
+      redirect_to login_url
+    end
+  end
 
 end

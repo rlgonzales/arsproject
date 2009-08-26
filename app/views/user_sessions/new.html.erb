@@ -1,16 +1,21 @@
 <% title "New User Session" %>
+<div style="margin: auto;">
+<div class="ar_left_login">
+  <% form_for @user_session do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :username %><br />
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
 
-<% form_for @user_session do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-
-
+<div class="ar_right_register">
+  <%= link_to "Register",register_url %>
+</div>
+</div>
