@@ -1,0 +1,59 @@
+h1
+{
+  text-align: center;
+}
+
+.ar_left_login
+{
+  display: table-cell;
+  position: relative;
+  border-style: none;
+  border-right-style: solid;
+  width: 600px;
+  padding: 0px;
+  height: 200px;
+}
+
+.ar_right_register
+{
+  display: table-cell;
+  text-align:  center;
+  vertical-align:  middle;
+  position: relative;
+  margin-left: 420px;
+  margin-top: -200px;
+  font-size: 24pt;
+  padding: 0px;
+  width: 600px;
+  height: 200px;
+}
+
+.ar_right_register a{
+  display: compact;
+  margin: -200px;
+  padding: 15px;
+  text-decoration: none;
+  height:100px;
+}
+
+.ar_right_register a:link
+{
+  color: #fff;
+}
+
+.ar_right_register a:hover
+{
+  text-decoration: underline;
+}
+
+.ar_right_register a:visited
+{
+  color: #000;
+}
+
+.ar_right_register a:active
+{
+  color: #000;
+}
+
+
