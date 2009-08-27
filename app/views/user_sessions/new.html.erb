@@ -1,6 +1,6 @@
-<% title "New User Session" %>
+<% title "ars.Project" %>
 <div style="margin: auto;">
-<div class="ar_left_login">
+<div class="ap_form ar_left_login ">
   <% form_for @user_session do |f| %>
     <%= f.error_messages %>
     <p>
@@ -16,6 +16,6 @@
 </div>
 
 <div class="ar_right_register">
-  <%= link_to "Register",register_url %>
+  <%= link_to ".:Register:.",register_url %>
 </div>
 </div>

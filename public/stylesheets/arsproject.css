@@ -1,6 +1,20 @@
 h1
 {
+  height: 60px;
+  overflow: hidden;
+  border-color: black;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+h1 div{
   text-align: center;
+  color: #bbb;
+  
+
+  margin-top: -30px;
+  margin-top: -40px;
+  font-size: 100px;
 }
 
 .ar_left_login
@@ -9,9 +23,16 @@ h1
   position: relative;
   border-style: none;
   border-right-style: solid;
+  border-width: 1px;
   width: 600px;
   padding: 0px;
   height: 200px;
+}
+
+.ar_left_login input
+{
+  width: 450px;
+  margin-left: 20px;
 }
 
 .ar_right_register
@@ -20,6 +41,7 @@ h1
   text-align:  center;
   vertical-align:  middle;
   position: relative;
+  font-weight: bold;
   margin-left: 420px;
   margin-top: -200px;
   font-size: 24pt;
@@ -28,10 +50,42 @@ h1
   height: 200px;
 }
 
+a{
+  color: #000;
+  background: transparent;
+  text-decoration: none;
+  padding: 6px;
+}
+a:link{
+  color: #000;
+  background: transparent;
+}
+
+a:hover{
+  color: #000;
+  background-color: grey;
+  border-style: solid;
+  border-width: 3px;
+  padding: 3px;
+}
+
+a:link{
+  color: #000;
+  background: transparent;
+ 
+}
+
+a:active{
+  color: #000;
+  background: transparent;
+}
+
+
 .ar_right_register a{
   display: compact;
   margin: -200px;
   padding: 15px;
+  border-style: none;
   text-decoration: none;
   height:100px;
 }
@@ -54,6 +108,61 @@ h1
 .ar_right_register a:active
 {
   color: #000;
+}
+
+.ap_form
+{
+  width: 600px;
+  margin-left: 200px;
+  margin-top: -90px;
+}
+
+.ap_form label
+{
+  color: #bbb;
+}
+
+.ap_form input
+{
+  border-color: black;
+  border-width: 1px;
+  border-style: dotted;
+  height: 46px;
+  font-size: 42px;
+}
+
+.ap_form input:focus{
+  border-color: black;
+  border-style: solid;
+}
+
+
+.ap_form input[type=submit]
+{
+  height:50px; 
+  border-width: 2px;
+  border-style: solid;
+}
+
+.ap_gravatar
+{
+  display: block;
+  width: 80px;
+  height: 80px;
+  background-color: black;
+  padding: 2px;
+}
+
+.ap_gravatar_empty
+{
+  display: table-cell;
+  width:80px;
+  height:80px;
+  background-color: grey;
+  font-size: 64px;
+  text-align: center;
+  font-weight: bold;
+  color: #aaa;
 }
 
 
