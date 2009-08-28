@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  before_filter :authenticate,:except =>[:create,:new]
   def new
     @user_session = UserSession.new
   end

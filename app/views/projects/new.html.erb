@@ -1,4 +1,11 @@
-<% form_for @project do %>
+<% title "New Proeject" %>
+<% with_avatar %>
+
+<% form_for @project do |f| %>
+
   <%= f.label :project_name %>
   <%= f.text_field :name %>
+  <%= f.submit 'Save Project' %>
+
 <% end %>
+

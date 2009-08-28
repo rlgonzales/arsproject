@@ -20,12 +20,11 @@ module LayoutHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
 
-  def avatar(avatar)
-    @content_for_avatar = avatar.to_s
-    @avatar_link = avatar
+  def with_avatar
+    @show_avatar = true
   end
 
-  def show_avatar?
-    @avatar_link
+  def with_avatar?
+    @show_avatar
   end
 end

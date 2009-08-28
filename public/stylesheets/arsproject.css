@@ -1,3 +1,4 @@
+
 h1
 {
   height: 60px;
@@ -131,7 +132,8 @@ a:active{
   font-size: 42px;
 }
 
-.ap_form input:focus{
+.ap_form input:focus
+{
   border-color: black;
   border-style: solid;
 }
@@ -142,6 +144,7 @@ a:active{
   height:50px; 
   border-width: 2px;
   border-style: solid;
+  margin-top: 15px;
 }
 
 .ap_gravatar
@@ -176,3 +179,51 @@ a:active{
   font-size: 24px;
   height: 50px;
 }
+
+.ap_project_list
+{
+  font-size: 18pt;
+  display: block;
+  border-style: dotted;
+  border-color: #aaa;
+  border-width: 1px;
+  padding: 10px 40px;
+}
+
+.ap_project_list_item
+{
+  height: 50px;
+}
+
+.ap_pl_delete
+{
+  font-size: 18px;
+  width: 60px;
+  height: 40px;
+  float: right;
+}
+
+.ap_project_description
+{
+  font-size: 18px;
+  height: 200px;
+  width: 800px;
+}
+
+
+#ap_project_add_milestone
+{
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#ap_project_add_milestone input[type=text]
+{
+  width: 530px;
+}
+#ap_project_add_milestone input[type=submit]
+{
+  float: right;
+  margin: 0px;
+}
+

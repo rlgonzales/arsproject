@@ -1,4 +1,18 @@
+<% title 'Project List' %>
 
-<% for project in @projects %>
+<div class="ap_project_list">
+  <% for project in @projects %>
 
-<% end %>
+    <% if project.owner_id == current_user.id or current_user.isadmin %>
+      <button class="ap_pl_delete">Del</button>
+
+    <% end %>
+
+    <div class="ap_project_list_item">
+      
+      <%= link_to project.name, project_url(project) %> owned by
+      <%= project.owner and project.owner.username %>
+      <%= not project.owner and "No one" %>
+    </div>
+  <% end %>
+</div>

@@ -4,6 +4,7 @@
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application','arsproject' %>
+    <%= javascript_include_tag 'mt12c','mt12p','ddr','ap'%>
 
     <%= yield(:head) %>
   </head>
@@ -21,18 +22,32 @@
         <%= yield :menu %>
         <%= render :partial => 'layouts/menu' %>
       </div>
-
-      <div class="ap_gravatar">
-        <%= image_tag current_user.gravatar_url %>
-        <!--
-        <div class="ap_gravatar_empty">
-          ?
-        </div>
-        -->
-      </div>
-
       
-      <%= yield %>
+      <% if with_avatar? %>
+        <% if current_user %>
+        <div class="ap_gravatar">
+            <% if @user %>
+              <%= image_tag @user.gravatar_url %>
+            <% else %>
+              <%= image_tag current_user.gravatar_url %>
+            <% end %>
+            <!--
+            <div class="ap_gravatar_empty">
+              ?
+            </div>
+            -->
+        </div>
+        <% end %>
+        <div class="ap_form">
+          <%= yield %>
+        </div>
+
+      <% else %>
+
+        <%= yield %>
+
+      <% end %>
+
     </div>
   </body>
 </html>

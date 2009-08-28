@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  owner_id: 1
+  project_id: 1
+  is_public: false
+
+two:
+  name: MyString
+  description: MyString
+  owner_id: 1
+  project_id: 1
+  is_public: false
