@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20090819203327) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"
-    t.string   "pesistence_token"
+    t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

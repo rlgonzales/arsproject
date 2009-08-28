@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    logger.warn params.to_yaml
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Successfully registered."
