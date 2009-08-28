@@ -113,8 +113,8 @@ a:active{
 .ap_form
 {
   width: 600px;
-  margin-left: 200px;
-  margin-top: -90px;
+  margin-left: 100px;
+  margin-top: -80px;
 }
 
 .ap_form label
@@ -165,4 +165,14 @@ a:active{
   color: #aaa;
 }
 
+#ap_profile_view 
+{
+  height: 400px;
 
+}
+#ap_menu
+{
+  display: block;
+  font-size: 24px;
+  height: 50px;
+}

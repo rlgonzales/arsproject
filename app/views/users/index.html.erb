@@ -1,0 +1,5 @@
+<% for user in @users %>
+  <div class="ap_admin_user_link">
+    <%= link_to user.email , user_url(user) %>
+  </div>
+<% end %>

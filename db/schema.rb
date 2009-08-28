@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090819203327) do
+ActiveRecord::Schema.define(:version => 20090828154642) do
+
+  create_table "messages", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.string   "subject"
+    t.text     "message"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -28,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20090819203327) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "isadmin"
   end
 
 end

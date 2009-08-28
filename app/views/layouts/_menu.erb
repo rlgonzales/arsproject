@@ -1,0 +1,12 @@
+<% if current_user %>
+
+  <%= link_to 'Projects', projects_url %>
+  <%= link_to 'Profile', user_url(:id=>'current') %>
+
+  <% if is_admin? %>
+    <%= link_to 'Users',users_url %>
+  <% end %>
+
+  <%= render :partial => 'menu' %>
+
+<% end %>

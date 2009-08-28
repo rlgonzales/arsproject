@@ -14,6 +14,16 @@ class UsersController < ApplicationController
     end
   end
   
+  def show
+
+    if params[:id] == 'current'
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
+
+  end
+
   def edit
     @user = User.find(params[:id])
   end
