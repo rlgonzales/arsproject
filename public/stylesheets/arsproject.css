@@ -217,6 +217,13 @@ a:active{
   margin-top: 0px;
 }
 
+#ap_add_new_milestone{
+  font-weight: bold;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
 #ap_project_add_milestone input[type=text]
 {
   width: 530px;

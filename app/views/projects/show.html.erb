@@ -2,16 +2,17 @@
 
 <div class="ap_project_description">
   
-  Milestones:
-
+  Milestones:<button id="ap_add_new_milestone">+</button>
+  
   <div class="ap_form" id="ap_project_add_milestone">
     <input type="submit" value="+">
     <input type="text" name="add_milestone">
   </div>
+  
   <% for m in @project.milestones %>
     
-    <%= m.name %> 
+    <%= m.name %>
     
   <% end %>
-
+  
 </div>

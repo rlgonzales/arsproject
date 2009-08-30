@@ -31,7 +31,11 @@ class ApplicationController < ActionController::Base
 
   
   def dynamic_layout
-    "arsproject"
+    if params[:layout] == 'naked'
+      "naked"
+    else
+      "arsproject"
+    end
   end
 
   def authenticate
