@@ -1,3 +1,10 @@
-<div style="width: 300px; height: 400px; background-color: black; color: white">
+<div id="ap_new_milestone" style="padding: 20px; width: 300px; height: 400px; background-color: black; color: white">
   New milestone
+  <% form_for @milestone do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= hidden_field :milestone, :project_id %>
+    <%= f.submit 'Create' %>
+  <% end %>
 </div>
