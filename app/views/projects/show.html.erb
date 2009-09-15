@@ -9,10 +9,10 @@
     <input type="text" name="add_milestone">
   </div>
   
-  <% for m in @project.milestones %>
-    
-    <%= m.name %>
-    
-  <% end %>
+  <div id="ap_milestones_list">
+    <% for m in @project.milestones %>
+      <%= m.name %>
+    <% end %>
+  </div>
   
 </div>
