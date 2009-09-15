@@ -53,6 +53,7 @@ var ap_showPartial = function(url,container,focus_element,submit_element){
           close_el.addEvent('click',function(ev){
             ev.stop();
             el.setStyle('display','none');
+            offset -= 30;
           }.bindWithEvent(this,[el]));
 
           var dg = new Drag(el,{'handle':drag_el});
