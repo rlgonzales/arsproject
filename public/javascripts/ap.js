@@ -160,10 +160,14 @@ hooks =
 // thats it, that how we deal with content sizing issue.
 function ap_setSizeMetrics(){
   var szS;
-  $$('ap_form').each(function(el){
+  $$('.ap_form').each(function(el){
+    alert('found!');
     szS = el.getScrollSize();
-    if(szS.x > 900) szS.x = 900;
-    el.setSize(szS);
+    if(szS.x > 900) szS.x = 900; // MAXWIDTH
+    el.setStyles({
+      width: szS.x,
+      height: szS.y
+    });
   });
 }
 
