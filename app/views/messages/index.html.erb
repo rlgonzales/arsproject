@@ -1,4 +1,9 @@
-<% for m in messages %>
-  <%= m.from.name %>
-  <%= m.subject %>
-<% end %>
+<% title "ars.Messages  " + current_user.first_name %>
+
+<div class="ap_form" id="ap_messages_index">
+  <%= current_user.full_name %>
+  <% for m in @messages %>
+    <%= m.from.name %>
+    <%= m.subject %>
+  <% end %>
+</div>

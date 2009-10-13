@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090828170831) do
+ActiveRecord::Schema.define(:version => 20091013180217) do
 
   create_table "messages", :force => true do |t|
     t.integer  "from_id"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20090828170831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "isadmin"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end

@@ -1,3 +1,11 @@
+.ap_content_width
+{
+}
+
+.ap_content_height
+{
+}
+
 
 h1
 {
@@ -117,6 +125,7 @@ a:active{
   width: 600px;
   margin-left: 100px;
   margin-top: -80px;
+  overflow: hidden;
 }
 
 .ap_form label
@@ -234,4 +243,10 @@ a:active{
   float: right;
   margin: 0px;
 }
+
+#ap_messages_index{
+height: 400px;
+padding-top: 50px;
+}
+
 

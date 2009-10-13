@@ -3,6 +3,7 @@
   <%= link_to 'Logout', logout_url,:style=>'float: right' %>
   <%= link_to 'Projects', projects_url %>
   <%= link_to 'Profile', user_url(:id=>'current') %>
+  <%= link_to 'Messages', messages_url %>
 
   <% if is_admin? %>
     <%= link_to 'Users',users_url %>

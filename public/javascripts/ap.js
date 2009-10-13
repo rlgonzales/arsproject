@@ -156,7 +156,21 @@ hooks =
                      ]
 };
 
+
+// thats it, that how we deal with content sizing issue.
+function ap_setSizeMetrics(){
+  var szS;
+  $$('ap_form').each(function(el){
+    szS = el.getScrollSize();
+    if(szS.x > 900) szS.x = 900;
+    el.setSize(szS);
+  });
+}
+
+
 window.addEvent('domready',function(){
+  ap_setSizeMetrics();
+
   ap_hookElementsIn();
   DD_roundies.addRule('#ap_new_milestone','15px',true);
 });

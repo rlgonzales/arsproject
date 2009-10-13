@@ -1,5 +1,7 @@
 
-<% form_for @message do %>
-
+<% form_for @message do |f| %>
+  <%= f.text_field :to_id %>
+  <%= f.text_field :subject %>
+  <%= f.text_area  :message %>
 <% end %>
 

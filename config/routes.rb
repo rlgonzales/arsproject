@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :user_sessions
   map.resources :projects
   map.resources :milestones
+  map.resources :messages
   map.resources :stories
 
   map.resources :users
