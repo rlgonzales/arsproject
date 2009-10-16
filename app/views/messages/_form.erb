@@ -1,7 +1,9 @@
 
 <% form_for @message do |f| %>
-  <%= f.text_field :to_id %>
+  <%= select(:message,:to_id, current_user.friends.collect {|fr| [fr.email,fr.id] },{:include_blank => true } ) %>
   <%= f.text_field :subject %>
   <%= f.text_area  :message %>
+  <%= f.submit "Send"%>
+
 <% end %>
 

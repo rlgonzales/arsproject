@@ -86,8 +86,14 @@ var ap_showPartial = function(url,container,focus_element,submit_element){
           ap_hookElementsIn();
         }});
         
-  el.load(url);
+  el.load(getval(url));
 };
+function getval(val){
+  if(typeof(val) == 'function')
+    return val();
+  return val;
+};
+
 
 // Sumbits the form hides the element... should update something?
 var ap_submitAndClosePartial = function(event,url,partial_to_close,submit_element,callback)
@@ -133,7 +139,7 @@ hooks =
                         ap_showPartial.bind(
                             null,
                             [
-                              '/milestones/new/?layout=naked',
+                              function(){return '/milestones/new/?layout=naked&milestone[project_id]='+project_id.toString()},
                               'container',
                               'milestone_name',
                               'milestone_submit'
@@ -156,14 +162,16 @@ hooks =
                      ]
 };
 
-
 // thats it, that how we deal with content sizing issue.
-function ap_setSizeMetrics(){
+function ap_setSizeMetrics()
+{
   var szS;
-  $$('.ap_form').each(function(el){
-    alert('found!');
+  $$('.ap_form').each(function(el)
+  {
+    var maxwidth = $('container').getSize().x-150;
+    el.setStyle('background-color','#eee');
     szS = el.getScrollSize();
-    if(szS.x > 900) szS.x = 900; // MAXWIDTH
+    if(szS.x > maxwidth) szS.x = maxwidth; // MAXWIDTH
     el.setStyles({
       width: szS.x,
       height: szS.y

@@ -3,7 +3,7 @@
 <div class="ap_form" id="ap_messages_index">
   <%= current_user.full_name %>
   <% for m in @messages %>
-    <%= m.from.name %>
+    <%= m.from.email %>
     <%= m.subject %>
   <% end %>
 </div>
