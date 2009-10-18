@@ -12,8 +12,9 @@
   
   <div id="ap_milestones_list">
     <% for m in @project.milestones %>
-      <%= m.name %>
+    <div style="ap_project_milestone">
+      <%= m.name %> <%= check_box_tag :project_milestone, :yes , m.completed , :id=>'ap_milestone_'+m.id.to_s ,:class => "ap_milestone_complete" %>
+    </div>
     <% end %>
   </div>
-  
 </div>

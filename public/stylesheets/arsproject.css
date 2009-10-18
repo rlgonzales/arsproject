@@ -249,3 +249,18 @@ padding-top: 50px;
   display: block;
   padding: 10px 0px;
 }
+
+#ap_milestones_list
+{
+  position: relative;
+  display: block;
+  padding: 5px;
+  border: 5px solid #aaa;
+}
+
+.ap_milestone_complete
+{
+  position: absolute;
+  left: 250px;
+}
+

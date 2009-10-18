@@ -3,7 +3,7 @@ var partial_registry = {};
 var hooks = {};
 
 var offset = 0;
-var zi = 0;
+var zi = 1;
 
 // here we load a div of some sort. When its done loading we run event handler
 var ap_showPartial = function(url,container,focus_element,submit_element){
