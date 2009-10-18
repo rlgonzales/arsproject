@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @update_type.name %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%=h @update_type.owner_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_update_type_path(@update_type) %> |
+<%= link_to 'Back', update_types_path %>

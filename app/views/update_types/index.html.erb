@@ -1,0 +1,22 @@
+<h1>Listing update_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Owner</th>
+  </tr>
+
+<% @update_types.each do |update_type| %>
+  <tr>
+    <td><%=h update_type.name %></td>
+    <td><%=h update_type.owner_id %></td>
+    <td><%= link_to 'Show', update_type %></td>
+    <td><%= link_to 'Edit', edit_update_type_path(update_type) %></td>
+    <td><%= link_to 'Destroy', update_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New update_type', new_update_type_path %>

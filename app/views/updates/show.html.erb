@@ -1,0 +1,28 @@
+<p>
+  <b>Owner:</b>
+  <%=h @update.owner_id %>
+</p>
+
+<p>
+  <b>Association:</b>
+  <%=h @update.association_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @update.type_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @update.description %>
+</p>
+
+<p>
+  <b>Followed:</b>
+  <%=h @update.followed %>
+</p>
+
+
+<%= link_to 'Edit', edit_update_path(@update) %> |
+<%= link_to 'Back', updates_path %>

@@ -1,0 +1,31 @@
+<h1>New update</h1>
+
+<% form_for(@update) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :owner_id %><br />
+    <%= f.text_field :owner_id %>
+  </p>
+  <p>
+    <%= f.label :association_id %><br />
+    <%= f.text_field :association_id %>
+  </p>
+  <p>
+    <%= f.label :type_id %><br />
+    <%= f.text_field :type_id %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :followed %><br />
+    <%= f.check_box :followed %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', updates_path %>

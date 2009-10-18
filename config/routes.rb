@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :update_types
+
+  map.resources :updates
+
+
   
   map.resources :user_sessions
   map.resources :projects

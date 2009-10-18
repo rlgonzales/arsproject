@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091016041942) do
+ActiveRecord::Schema.define(:version => 20091018001842) do
+
+  create_table "dashboards", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "association_id"
+    t.integer  "type_id"
+    t.string   "description"
+    t.boolean  "followed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendships", :force => true do |t|
     t.string   "nickname"
@@ -57,6 +67,24 @@ ActiveRecord::Schema.define(:version => 20091016041942) do
     t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "update_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "updates", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "association_id"
+    t.integer  "type_id"
+    t.string   "description"
+    t.boolean  "followed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cache"
   end
 
   create_table "users", :force => true do |t|

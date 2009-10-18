@@ -2,8 +2,9 @@
 <% content_for :title_extra,link_to('radio','http://md5.ca:8000/mpd.ogg.m3u') %>
 
 
-<div class="ap_form" id="ap_profile_view">
+<div id="ap_profile_view">
   <div class="ap_user_working_on">
   Working on: [project name] : [status]
   </div>
+  <%= render :partial => 'updates/inline' %>
 </div>
