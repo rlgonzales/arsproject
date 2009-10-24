@@ -1,20 +1,29 @@
 
 h1
 {
+
+  position: absolute;
+  top: 0px;
   height: 60px;
+
   overflow: hidden;
-  border-color: black;
+  background-color: black;
+  border-color: gray;
   border-top-style: solid;
   border-bottom-style: solid;
   border-width: 1px;
+  color: white;
+  margin:0px;
 }
-h1 div{
-  text-align: center;
-  color: #bbb;
-  
 
+
+h1 div{
+  color: #bbb;
+  margin: 0px
+  padding: 0px;
   margin-top: -30px;
   margin-top: -40px;
+  
   font-size: 100px;
 }
 
@@ -28,6 +37,11 @@ h1 div{
   width: 600px;
   padding: 0px;
   height: 200px;
+}
+
+.ap_flash
+{
+  display: none;
 }
 
 .ar_left_login input
@@ -209,7 +223,6 @@ div.ar_right_register a{
 .ap_project_description
 {
   font-size: 18px;
-  height: 200px;
   width: 800px;
 }
 
@@ -262,5 +275,17 @@ padding-top: 50px;
 {
   position: absolute;
   left: 250px;
+}
+
+.ap_project_milestone_story
+{
+  display: block;
+  background-color: red;
+}
+
+.ap_project_milestone
+{
+  display: block;
+  color: gray;
 }
 

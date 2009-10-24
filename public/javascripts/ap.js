@@ -5,6 +5,8 @@ var hooks = {};
 var offset = 0;
 var zi = 1;
 
+
+
 // here we load a div of some sort. When its done loading we run event handler
 var ap_showPartial = function(url,container,focus_element,submit_element){
   var ct = container;
@@ -113,11 +115,18 @@ var ap_copyMilestoneSubject = function(form)
 {
     
     var newdiv = new Element('div',{
+                              'class':'ap_project_milestone',
                               'styles':{
                                 'display':'block'
                               }
                             });
+    var check = new Element('input',{
+                                'type':'checkbox',
+                                'id':'ap_milestone_unknown',
+                                'value':'yes',
+                                'class':'ap_milestone_complete'});
     newdiv.set('text',form.milestone_name.value);
+    check.inject(newdiv,'bottom');
     newdiv.inject($('ap_milestones_list'),'top');
 };
 
@@ -127,10 +136,31 @@ var ap_hookElementsIn = function()
 {
   var hk = new Hash(hooks);
   hk.each(function(val,key){
-    if($(key))
-    $(key).addEvent(val[0],val[1]);
+    if(val[2])
+    {// class based event handlers
+      l(val);
+      l(key);
+      $$('.'+key).each(function(el){
+        el.addEvent(val[0],val[1]);
+        l('added!');
+      });
+    }
+    else
+    {// id based event handlers
+      if($(key))
+        $(key).addEvent(val[0],val[1]);
+    }
   });
 };
+
+var ap_milestoneCompleted = function(ev){
+  //ev.stop();
+  l('lol');
+  ev.target.set('checked',false);
+  (function(){ev.target.set('checked',true);}).delay(1000);
+  (function(){ev.target.set('checked',false);}).delay(2000);
+}
+
 
 hooks = 
 {
@@ -159,8 +189,10 @@ hooks =
                                                   ap_copyMilestoneSubject
                                                 ]
                                               )
-                     ]
+                     ],
+  'ap_milestone_complete':['click', ap_milestoneCompleted,true]
 };
+
 
 // thats it, that how we deal with content sizing issue.
 function ap_setSizeMetrics()
@@ -187,3 +219,11 @@ window.addEvent('domready',function(){
   DD_roundies.addRule('#ap_new_milestone','15px',true);
 });
 
+
+function l(msg)
+{
+  if(typeof(console) != 'undefined')
+  {
+    console.log(msg);
+  }
+}

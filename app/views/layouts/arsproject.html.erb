@@ -9,14 +9,16 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
+
+    <%- if show_title? -%>
+      <h1><div><%=h yield(:title) %>  <%= yield(:title_extra) %></div></h1>
+    <%- end -%>
+
+    <div id="container" class="ap_container">
       <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%= content_tag :div, msg, :class => 'ap_flash', :id => "flash_#{name}" %>
       <%- end -%>
       
-      <%- if show_title? -%>
-        <h1><div><%=h yield(:title) %>  <%= yield(:title_extra) %></div></h1>
-      <%- end -%>
 
       <div id="ap_menu">
         <%= yield :menu %>

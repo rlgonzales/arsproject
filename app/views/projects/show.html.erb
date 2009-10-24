@@ -1,20 +1,17 @@
 <% title @project.name %>
 <%= javascript_tag "var project_id = "+@project.id.to_s+';' %>
 
+
 <div class="ap_project_description">
-  
-  Milestones:<button id="ap_add_new_milestone">+</button>
-  
-  <div class="ap_form" id="ap_project_add_milestone">
-    <input type="submit" value="+">
-    <input type="text" name="add_milestone">
-  </div>
-  
-  <div id="ap_milestones_list">
-    <% for m in @project.milestones %>
-    <div style="ap_project_milestone">
-      <%= m.name %> <%= check_box_tag :project_milestone, :yes , m.completed , :id=>'ap_milestone_'+m.id.to_s ,:class => "ap_milestone_complete" %>
-    </div>
+  <button id="ap_add_new_milestone">+</button>
+  <% @project.milestones.each do |m| %>
+  <div class="ap_project_milestone">
+    <%= m.name %> 
+    <% m.stories.each do |s| %>
+      <div class="ap_project_milestone_story">
+        <%= s.name %>
+      </div>
     <% end %>
-  </div>
+   </div>
+  <% end %>
 </div>
