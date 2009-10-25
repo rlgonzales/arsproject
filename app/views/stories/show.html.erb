@@ -1,0 +1,23 @@
+<p>
+  <b>Milestone:</b>
+  <%=h @story.milestone_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @story.project_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%=h @story.subject %>
+</p>
+
+<p>
+  <b>Contents:</b>
+  <%=h @story.contents %>
+</p>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>

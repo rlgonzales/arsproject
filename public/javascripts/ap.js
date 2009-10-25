@@ -6,9 +6,32 @@ var offset = 0;
 var zi = 1;
 
 
+var ap_showPartialSlideApart = function(ev,url,container,focus_element,submit_element){
+  var ct = $(container);
+  var div = new Element('div', {
+      html: 'lol',
+      styles:{
+        height: 0,
+        width:  700,
+        overflow: 'hidden'
+      }
+    });
+  
+  div.inject(this,'after');
+  div.set('load',{
+
+    onSuccess: function(){
+      var szF = div.getScrollSize();
+      div.get('tween').start('height',[0,szF.y]);
+    }
+  });
+
+  div.load(getval(url));
+}
 
 // here we load a div of some sort. When its done loading we run event handler
-var ap_showPartial = function(url,container,focus_element,submit_element){
+var ap_showPartial = function(ev,url,container,focus_element,submit_element){
+
   var ct = container;
   if(container == null)
     ct = $('container');
@@ -49,7 +72,6 @@ var ap_showPartial = function(url,container,focus_element,submit_element){
             }
           });
           
-
           // hide the dialog
           close_el.inject(el,'top');
           close_el.addEvent('click',function(ev){
@@ -136,17 +158,18 @@ var ap_hookElementsIn = function()
 {
   var hk = new Hash(hooks);
   hk.each(function(val,key){
-    if(val[2])
+    if(val[3])
     {// class based event handlers
-      l(val);
-      l(key);
       $$('.'+key).each(function(el){
-        el.addEvent(val[0],val[1]);
+        el.addEvent(val[0],val[1].bindWithEvent(el,val[2]) );
         l('added!');
       });
     }
     else
     {// id based event handlers
+      l(val);
+      l(key);
+
       if($(key))
         $(key).addEvent(val[0],val[1]);
     }
@@ -166,31 +189,45 @@ hooks =
 {
   'ap_add_new_milestone':[
                         'click',
-                        ap_showPartial.bind(
-                            null,
-                            [
-                              function(){return '/milestones/new/?layout=naked&milestone[project_id]='+project_id.toString()},
-                              'container',
-                              'milestone_name',
-                              'milestone_submit'
-                            ]
-                            
-                         )
+                        ap_showPartial,
+                          [
+                            function(){return '/milestones/new/?layout=naked&milestone[project_id]='+project_id.toString()},
+                            'container',
+                            'milestone_name',
+                            'milestone_submit'
+                          ]
                         ],
+
+  'ap_add_new_story':[
+                        'click',
+                        ap_showPartialSlideApart,
+                          [
+                            function(){return '/stories/new/?layout=naked&story[project_id]='+project_id.toString()},
+                            'container',
+                            'story_name',
+                            'story_submit'
+                          ],
+                         true
+                        ],
+
 
   'milestone_submit':[
                         'click',
-                        ap_submitAndClosePartial.bindWithEvent(
-                                                null,
-                                                [
-                                                  '/milestones',
-                                                  null,
-                                                  'milestone_submit', 
-                                                  ap_copyMilestoneSubject
-                                                ]
-                                              )
+                        ap_submitAndClosePartial,
+                          [
+                            '/milestones',
+                            null,
+                            'milestone_submit', 
+                            ap_copyMilestoneSubject
+                          ],
+                        true
                      ],
-  'ap_milestone_complete':['click', ap_milestoneCompleted,true]
+  'ap_milestone_complete':[
+                            'click', 
+                            ap_milestoneCompleted,
+                            [],
+                            true
+                          ]
 };
 
 

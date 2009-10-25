@@ -6,12 +6,23 @@
     <%= stylesheet_link_tag 'application','arsproject' %>
     <%= javascript_include_tag 'mt12c','mt12p','ddr','ap'%>
 
+
+      <link rel="stylesheet" type="text/css" href="/mooeditable/Assets/MooEditable/MooEditable.css"/>
+      <link rel="stylesheet" type="text/css" href="/mooeditable/Assets/MooEditable/MooEditable.Extras.css"/>
+      <link rel="stylesheet" type="text/css" href="/mooeditable/Assets/MooEditable/MooEditable.Forecolor.css"/>
+
+      <script type="text/javascript" src="/mooeditable/Source/MooEditable/MooEditable.js"></script>
+      <script type="text/javascript" src="/mooeditable/Source/MooEditable/MooEditable.UI.ButtonOverlay.js"></script>
+      <script type="text/javascript" src="/mooeditable/Source/MooEditable/MooEditable.Forecolor.js"></script>
+
+
     <%= yield(:head) %>
+
   </head>
   <body>
 
     <%- if show_title? -%>
-      <h1><div><%=h yield(:title) %>  <%= yield(:title_extra) %></div></h1>
+      <h1 id="ap_header"><div ><%=h yield(:title) %>  <%= yield(:title_extra) %></div></h1>
     <%- end -%>
 
     <div id="container" class="ap_container">
@@ -33,11 +44,6 @@
             <% else %>
               <%= image_tag current_user.gravatar_url %>
             <% end %>
-            <!--
-            <div class="ap_gravatar_empty">
-              ?
-            </div>
-            -->
         </div>
         <% end %>
         <div class="ap_form">
@@ -53,3 +59,9 @@
     </div>
   </body>
 </html>
+<script type="text/javascript">
+  DD_roundies.addRule('.ap_container','20px', true);
+  DD_roundies.addRule('.ap_add_new','7px', true);
+  DD_roundies.addRule('.ap_add_new','7px', true);
+  DD_roundies.addRule('#ap_header','0 0 17px 0', true);
+</script>

@@ -3,10 +3,10 @@
 
 
 <div class="ap_project_description">
-  <button id="ap_add_new_milestone">+</button>
+  <button id="ap_add_new_milestone" class="ap_add_new">+</button>
   <% @project.milestones.each do |m| %>
   <div class="ap_project_milestone">
-    <%= m.name %> 
+    <%= m.name %> <button id="ap_add_new_story" class="ap_add_new ap_add_new_story">+</button>
     <% m.stories.each do |s| %>
       <div class="ap_project_milestone_story">
         <%= s.name %>

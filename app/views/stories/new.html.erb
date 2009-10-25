@@ -1,0 +1,14 @@
+<div class="ap_new_story">
+  <% form_for @story do |f| %>
+    <%= f.text_area :description %>
+    <%= hidden_field :story, :project_id %>
+    <%= hidden_field :story, :milestone_id %>
+    <%= f.submit 'Create' %>
+  <% end %>
+  
+</div>
+<script type="text/javascript">
+  window.addEvent("domready",function(){
+    $('story_description').mooEditable();
+  });
+</script>

@@ -1,0 +1,26 @@
+<h1>Listing stories</h1>
+
+<table>
+  <tr>
+    <th>Milestone</th>
+    <th>Project</th>
+    <th>Subject</th>
+    <th>Contents</th>
+  </tr>
+
+<% @stories.each do |story| %>
+  <tr>
+    <td><%=h story.milestone_id %></td>
+    <td><%=h story.project_id %></td>
+    <td><%=h story.subject %></td>
+    <td><%=h story.contents %></td>
+    <td><%= link_to 'Show', story %></td>
+    <td><%= link_to 'Edit', edit_story_path(story) %></td>
+    <td><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New story', new_story_path %>

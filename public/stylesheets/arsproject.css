@@ -1,10 +1,11 @@
 
 h1
 {
-
   position: absolute;
   top: 0px;
-  height: 60px;
+  left: 0px;
+  height: 85px;
+  padding: 0px 50px 0px 20px;
 
   overflow: hidden;
   background-color: black;
@@ -16,15 +17,23 @@ h1
   margin:0px;
 }
 
+h1 a:link{
+  color: white;
+  padding: 3px;
+}
+h1 a:hover{
+  border: 0px solid black;
+}
+
 
 h1 div{
   color: #bbb;
   margin: 0px
   padding: 0px;
-  margin-top: -30px;
-  margin-top: -40px;
+
   
-  font-size: 100px;
+  font-weight: normal;
+  font-size: 70px;
 }
 
 .ar_left_login
@@ -233,11 +242,24 @@ div.ar_right_register a{
   margin-top: 0px;
 }
 
-#ap_add_new_milestone{
+.ap_add_new
+{
   font-weight: bold;
   border-width: 1px;
   border-style: solid;
   border-color: black;
+  float: right;
+  margin: 0px 5px;
+}
+
+#ap_add_new_story
+{
+  background-color: red;
+}
+
+#ap_add_new_milestone
+{
+  float: none;
 }
 
 #ap_project_add_milestone input[type=text]
@@ -289,3 +311,17 @@ padding-top: 50px;
   color: gray;
 }
 
+.ap_new_story
+{
+
+  padding-bottom:50px;
+}
+.ap_new_story textarea{
+  height: 200px;
+  width: 700px;
+ }
+.ap_new_story input[type=submit]{
+  height: 30px;
+  width: 700px;
+  font-size: 20px
+}
