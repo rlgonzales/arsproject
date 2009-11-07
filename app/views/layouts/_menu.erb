@@ -1,14 +1,17 @@
-<% if current_user %>
+      <% if current_user %>
+    <div id="ap_top_menu">
 
-  <%= link_to 'Projects', projects_url %>
-  <%= link_to 'Profile', user_url(:id=>'current') %>
-  <%= link_to 'Messages', messages_url %>
-  <%= link_to 'Logout', logout_url %>
+        <%= link_to 'Projects', projects_url %>
+        <%= link_to 'Profile', user_url(:id=>'current') %>
+        <%= link_to 'Messages', messages_url %>
+        <%= link_to 'Logout', logout_url %>
 
-  <% if is_admin? %>
-    <%= link_to 'Users',users_url %>
-  <% end %>
+        <% if is_admin? %>
+          <%= link_to 'Users',users_url %>
+        <% end %>
 
-  <%= render :partial => 'menu' %>
+        <%= render :partial => 'menu' %>
+    </div>
 
-<% end %>
+      <% end %>
+

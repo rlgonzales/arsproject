@@ -6,10 +6,13 @@ var offset = 0;
 var zi = 1;
 
 
-var ap_showPartialSlideApart = function(ev,url,container,focus_element,submit_element){
+var ap_showPartialSlideApart = function(ev,url,container,focus_element,submit_element)
+{
   var ct = $(container);
+
+  var to_hide = 'ap_partial_'+zi.toString();
   var div = new Element('div', {
-      html: 'lol',
+      id: to_hide,
       styles:{
         height: 0,
         width:  700,
@@ -17,15 +20,25 @@ var ap_showPartialSlideApart = function(ev,url,container,focus_element,submit_el
       }
     });
   
+  zi++;
+  
   div.inject(this,'after');
   div.set('load',{
 
     onSuccess: function(){
       var szF = div.getScrollSize();
       div.get('tween').start('height',[0,szF.y]);
+      ap_hookElementsIn();
+      
+          // LOL ZOMFG :)
+          var sel = $(submit_element);
+          if( sel )
+          {
+            sel.set( 'to_hide', to_hide );
+          };
+
     }
   });
-
   div.load(getval(url));
 }
 
@@ -133,6 +146,11 @@ var ap_submitAndClosePartial = function(event,url,partial_to_close,submit_elemen
     
 };
 
+var ap_shrinkStory = function( form )
+{
+    $($('story_submit').get('to_hide')).tween('height',0);
+}
+
 var ap_copyMilestoneSubject = function(form)
 {
     
@@ -160,25 +178,28 @@ var ap_hookElementsIn = function()
   hk.each(function(val,key){
     if(val[3])
     {// class based event handlers
+      var i = 0;
       $$('.'+key).each(function(el){
         el.addEvent(val[0],val[1].bindWithEvent(el,val[2]) );
-        l('added!');
+        l('class '+key.toString());
+        i++;
       });
     }
     else
     {// id based event handlers
-      l(val);
-      l(key);
 
       if($(key))
-        $(key).addEvent(val[0],val[1]);
+        $(key).addEvent(val[0],val[1].bindWithEvent($(key),val[2]) );
     }
   });
+
+  
+  // here we will call handlers 
+  ap_projectHookElementsIn(); // lol
+  
 };
 
 var ap_milestoneCompleted = function(ev){
-  //ev.stop();
-  l('lol');
   ev.target.set('checked',false);
   (function(){ev.target.set('checked',true);}).delay(1000);
   (function(){ev.target.set('checked',false);}).delay(2000);
@@ -197,7 +218,7 @@ hooks =
                             'milestone_submit'
                           ]
                         ],
-
+  
   'ap_add_new_story':[
                         'click',
                         ap_showPartialSlideApart,
@@ -221,7 +242,18 @@ hooks =
                             ap_copyMilestoneSubject
                           ],
                         true
-                     ],
+                     ], 
+  'story_submit':[
+                'click',
+                 ap_submitAndClosePartial,
+                          [
+                            '/stories',
+                            null,
+                            'story_submit', 
+                            ap_shrinkStory
+                          ],
+                    true
+                  ],
   'ap_milestone_complete':[
                             'click', 
                             ap_milestoneCompleted,

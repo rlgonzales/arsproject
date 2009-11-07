@@ -4,7 +4,7 @@
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application','arsproject' %>
-    <%= javascript_include_tag 'mt12c','mt12p','ddr','ap'%>
+    <%= javascript_include_tag 'mt12c','mt12p','ddr','ap','ap_project'%>
 
 
       <link rel="stylesheet" type="text/css" href="/mooeditable/Assets/MooEditable/MooEditable.css"/>
@@ -21,9 +21,7 @@
   </head>
   <body>
 
-    <div id="ap_top_menu">
-      <%= render :partial => 'layouts/menu' %>
-    </div>
+    <%= render :partial => 'layouts/menu' %>
      
     <%- if show_title? -%>
       <h1 id="ap_header"><div ><%=h yield(:title) %>  <%= yield(:title_extra) %></div></h1>
@@ -62,9 +60,11 @@
     </div>
   </body>
 </html>
+
 <script type="text/javascript">
   DD_roundies.addRule('.ap_container','20px', true);
   DD_roundies.addRule('.ap_add_new','7px', true);
   DD_roundies.addRule('.ap_add_new','7px', true);
   DD_roundies.addRule('#ap_header','0 0 17px 0', true);
 </script>
+
